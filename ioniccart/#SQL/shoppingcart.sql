@@ -1,4 +1,11 @@
-
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 11, 2018 at 09:28 AM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.6.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -7,10 +14,10 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `foodkart`
+-- Database: `shoppingcart`
 --
 
 -- --------------------------------------------------------
@@ -19,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `products`
 --
 
-CREATE TABLE IF NOT EXISTS `products` (
+CREATE TABLE `products` (
   `p_id` varchar(5) NOT NULL,
   `p_name` varchar(30) NOT NULL,
   `p_description` varchar(300) NOT NULL,
@@ -27,8 +34,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `p_image_id` varchar(500) NOT NULL,
   `p_price` int(11) NOT NULL,
   `p_available` tinyint(1) NOT NULL,
-  `p_stock` int(11) NOT NULL,
-  PRIMARY KEY (`p_id`)
+  `p_stock` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -63,6 +69,45 @@ INSERT INTO `products` (`p_id`, `p_name`, `p_description`, `p_category`, `p_imag
 ('25', 'Thums Up', 'Product Description', '2', 'thumsup', 30, 1, 100),
 ('26', 'Coke Zero', 'Product Description', '2', 'coke_zero', 30, 1, 100),
 ('27', 'Kinley', 'Product Description', '2', 'kinley', 30, 1, 100);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `u_name` varchar(300) NOT NULL,
+  `u_id` varchar(300) NOT NULL,
+  `u_password` varchar(300) NOT NULL,
+  `u_phone` varchar(300) NOT NULL,
+  `u_address` varchar(300) NOT NULL,
+  `u_pincode` varchar(300) NOT NULL,
+  `u_verified` tinyint(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`u_name`, `u_id`, `u_password`, `u_phone`, `u_address`, `u_pincode`, `u_verified`) VALUES
+('Sagar', 'sagar', 'dcf8e90e0afe922b879ea0c3aad08217', '9763812023', 'pune', '411028', 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`p_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`u_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
